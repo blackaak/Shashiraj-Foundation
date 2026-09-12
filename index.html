@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Client Intro Video Test</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: Arial, sans-serif;
+        background: #000;
+    }
+
+    /* =========================
+       INTRO SCREEN
+    ========================= */
+
+    #intro-screen {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100vh;
+        background: #000;
+        z-index: 9999;
+        overflow: hidden;
+    }
+
+    /* YouTube player */
+
+    #youtube-player {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        /*
+         * Make the video larger than the viewport
+         * so there are no black bars.
+         */
+        width: 177.78vh;
+        height: 100vh;
+
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+    }
+
+    /* Dark overlay */
+
+    .video-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.20);
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* =========================
+       BUTTONS
+    ========================= */
+
+    .controls {
+        position: absolute;
+        bottom: 35px;
+        left: 0;
+        right: 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 0 40px;
+
+        z-index: 10;
+    }
+
+    button {
+        border: none;
+        padding: 13px 22px;
+
+        border-radius: 30px;
+
+        background: rgba(255, 255, 255, 0.90);
+        color: #111;
+
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition: all 0.25s ease;
+    }
+
+    button:hover {
+        background: #fff;
+        transform: translateY(-2px);
+    }
+
+    /* =========================
+       MAIN WEBSITE
+    ========================= */
+
+    #main-website {
+        display: none;
+
+        width: 100%;
+        height: 100vh;
+
+        overflow-y: auto;
+
+        background: #fff;
+        color: #111;
+    }
+
+    .hero {
+        min-height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 40px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 6vw, 80px);
+        margin-bottom: 20px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: #666;
+        max-width: 700px;
+    }
+
+    .hero .badge {
+        margin-bottom: 25px;
+
+        padding: 8px 18px;
+
+        border-radius: 30px;
+
+        background: #111;
+        color: #fff;
+
+        font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 768px) {
+
+        #youtube-player {
+            width: 177.78vh;
+            height: 100vh;
+        }
+
+        .controls {
+            padding: 0 20px;
+            bottom: 20px;
+        }
+
+        button {
+            padding: 11px 16px;
+            font-size: 13px;
+        }
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+```
+<!-- =================================
+     INTRO VIDEO
+================================== -->
+
+<div id="intro-screen">
+
+    <!-- YouTube Player -->
+    <div id="youtube-player"></div>
+
+    <!-- Dark overlay -->
+    <div class="video-overlay"></div>
+
+    <!-- Controls -->
+    <div class="controls">
+
+        <button id="sound-btn" onclick="enableSound()">
+            🔇 Enable Sound
+        </button>
+
+        <button onclick="skipIntro()">
+            Skip Intro →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =================================
+     MAIN WEBSITE
+================================== -->
+
+<div id="main-website">
+
+    <section class="hero">
+
+        <div class="badge">
+            INTRO COMPLETED
+        </div>
+
+        <h1>
+            Welcome to Our Website
+        </h1>
+
+        <p>
+            This is where your client's actual website content
+            will appear after the intro video.
+        </p>
+
+    </section>
+
+</div>
+
+
+<!-- =================================
+     YOUTUBE IFRAME API
+================================== -->
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+
+    /*
+     * Big Buck Bunny
+     *
+     * You can replace this with the client's
+     * YouTube video ID later.
+     */
+
+    const VIDEO_ID = "huVVKz8P3vU";
+
+    let player;
+
+
+    /*
+     * YouTube automatically calls this function
+     * when the API has loaded.
+     */
+
+    function onYouTubeIframeAPIReady() {
+
+        player = new YT.Player("youtube-player", {
+
+            videoId: VIDEO_ID,
+
+            playerVars: {
+
+                /*
+                 * Start automatically
+                 */
+                autoplay: 1,
+
+                /*
+                 * Required for reliable autoplay
+                 */
+                mute: 1,
+
+                /*
+                 * Hide YouTube controls
+                 */
+                controls: 0,
+
+                /*
+                 * Keep video inline on mobile
+                 */
+                playsinline: 1,
+
+                /*
+                 * Don't show related videos
+                 */
+                rel: 0,
+
+                /*
+                 * Hide YouTube branding as much as possible
+                 */
+                modestbranding: 1
+
+            },
+
+            events: {
+
+                onReady: function(event) {
+
+                    console.log("YouTube video ready");
+
+                    /*
+                     * Start video
+                     */
+                    event.target.mute();
+                    event.target.playVideo();
+
+                },
+
+                onStateChange: function(event) {
+
+                    /*
+                     * YT.PlayerState.ENDED = 0
+                     */
+
+                    if (event.data === YT.PlayerState.ENDED) {
+
+                        console.log("Intro video finished");
+
+                        openMainWebsite();
+
+                    }
+
+                },
+
+                onError: function(event) {
+
+                    console.error(
+                        "YouTube error:",
+                        event.data
+                    );
+
+                }
+
+            }
+
+        });
+
+    }
+
+
+    /*
+     * Enable sound
+     */
+
+    function enableSound() {
+
+        if (!player) {
+            return;
+        }
+
+        player.unMute();
+        player.setVolume(100);
+
+        document.getElementById("sound-btn").innerHTML =
+            "🔊 Sound On";
+    }
+
+
+    /*
+     * Skip intro
+     */
+
+    function skipIntro() {
+
+        console.log("Intro skipped");
+
+        if (player) {
+            player.stopVideo();
+        }
+
+        openMainWebsite();
+
+    }
+
+
+    /*
+     * Show main website
+     */
+
+    function openMainWebsite() {
+
+        const intro =
+            document.getElementById("intro-screen");
+
+        const website =
+            document.getElementById("main-website");
+
+        intro.style.display = "none";
+
+        website.style.display = "block";
+
+        /*
+         * Allow page scrolling again
+         */
+        document.body.style.overflow = "auto";
+
+    }
+
+</script>
+```
+
+</body>
+</html>
