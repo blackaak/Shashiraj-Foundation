@@ -8,3 +8,10 @@ summary { list-style:none; cursor:pointer; }
 details[open] .faq-plus { transform:rotate(45deg); }
 @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
 @media (max-width:760px) { .sf-step-line { display:none; } }
+@media (max-width:680px) {
+  .sf-hero-content { left:6vw !important; right:6vw !important; bottom:13vh !important; }
+  .sf-hero-title { font-size:34px !important; line-height:1.14 !important; letter-spacing:-1px !important; }
+  .sf-hero-desc { font-size:14px !important; line-height:1.6 !important; margin:14px 0 22px !important; max-width:100% !important; }
+  .sf-hero-actions a { padding:12px 18px !important; font-size:12px !important; gap:10px !important; }
+  .sf-hero-sound { top:auto !important; bottom:6vh !important; right:8vw !important; width:44px !important; height:44px !important; font-size:15px !important; }
+}

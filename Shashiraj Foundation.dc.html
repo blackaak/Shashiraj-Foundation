@@ -53,23 +53,22 @@
   </sc-if>
 </header>
 
-<section id="home" style="position:relative;height:100vh;min-height:700px;overflow:hidden;background:linear-gradient(135deg,#1B4436,#14384F)">
-  <div style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none">
+<section id="home" class="sf-hero" style="position:relative;height:100vh;min-height:700px;overflow:hidden;background:linear-gradient(135deg,#1B4436,#14384F)">
+  <div class="sf-hero-video" style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none">
     <div id="player" style="position:absolute;left:50%;top:50%;width:100vw;height:56.25vw;min-width:177.78vh;min-height:100vh;transform:translate(-50%,-50%)"></div>
   </div>
   <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(13,42,30,.86) 0%,rgba(15,45,36,.62) 42%,rgba(18,50,40,.22) 78%,rgba(20,56,79,.35) 100%),linear-gradient(0deg,rgba(12,38,28,.7),transparent 55%)"></div>
 
-  <div style="position:absolute;z-index:5;left:7vw;right:7vw;bottom:13vh;color:#fff;animation:fadeUp 1s ease both">
-    <h1 style="margin:0;max-width:900px;font-family:'Playfair Display',serif;font-size:clamp(46px,6.4vw,92px);line-height:1.02;letter-spacing:-2.5px;font-weight:600;text-wrap:pretty">Every life deserves<br><em style="color:#A8D48A;font-style:normal">care that feels like home.</em></h1>
-    <p style="max-width:560px;margin:26px 0 34px;font-size:17px;line-height:1.75;color:rgba(255,255,255,.88)">Day care, residential hostel, therapy, special education and senior care — for children, families and elders across two centres in Delhi.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
+  <div class="sf-hero-content" style="position:absolute;z-index:5;left:7vw;right:7vw;bottom:13vh;color:#fff;animation:fadeUp 1s ease both">
+    <h1 class="sf-hero-title" style="margin:0;max-width:900px;font-family:'Playfair Display',serif;font-size:clamp(46px,6.4vw,92px);line-height:1.02;letter-spacing:-2.5px;font-weight:600;text-wrap:pretty">Every life deserves<br><em style="color:#A8D48A;font-style:normal">care that feels like home.</em></h1>
+    <p class="sf-hero-desc" style="max-width:560px;margin:26px 0 34px;font-size:17px;line-height:1.75;color:rgba(255,255,255,.88)">Day care, residential hostel, therapy, special education and senior care — for children, families and elders across two centres in Delhi.</p>
+    <div class="sf-hero-actions" style="display:flex;gap:12px;flex-wrap:wrap">
       <a href="#services" style="display:inline-flex;align-items:center;gap:14px;padding:15px 26px;border-radius:999px;background:#fff;color:#14384F;font-size:13px;font-weight:600" style-hover="background:#A8D48A;color:#16331C">Explore Our Services <span>↓</span></a>
       <a href="#contact" style="display:inline-flex;align-items:center;gap:14px;padding:15px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.55);background:rgba(255,255,255,.08);backdrop-filter:blur(10px);color:#fff;font-size:13px;font-weight:600" style-hover="background:rgba(255,255,255,.2)">Talk to Us <span>↗</span></a>
     </div>
   </div>
-  </div>
 
-  <button onClick="{{ toggleSound }}" aria-label="Toggle sound" style="position:absolute;right:5vw;bottom:40px;z-index:10;width:52px;height:52px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);color:#fff;cursor:pointer;font:inherit;font-size:18px" style-hover="background:rgba(255,255,255,.26)">{{ soundIcon }}</button>
+  <button class="sf-hero-sound" onClick="{{ toggleSound }}" aria-label="Toggle sound" style="position:absolute;right:5vw;bottom:40px;z-index:10;width:52px;height:52px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);color:#fff;cursor:pointer;font:inherit;font-size:18px" style-hover="background:rgba(255,255,255,.26)">{{ soundIcon }}</button>
 </section>
 
 <section style="padding:clamp(80px,9vw,140px) 7vw;background:#F2F6EE">
