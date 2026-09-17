@@ -1,3 +1,4 @@
+html { scroll-behavior:smooth; }
 body { margin:0; font-family:"DM Sans",sans-serif; color:#1B2A22; background:#F2F6EE; overflow-x:hidden; -webkit-font-smoothing:antialiased; }
 * { box-sizing:border-box; }
 a { color:#2C5A33; text-decoration:none; }
@@ -6,7 +7,13 @@ a:hover { color:#4C8B3F; }
 summary::-webkit-details-marker { display:none; }
 summary { list-style:none; cursor:pointer; }
 details[open] .faq-plus { transform:rotate(45deg); }
+#home, #about, #services, #special-care, #senior-care, #gallery, #admissions, #locations, #contact { scroll-margin-top:90px; }
+.sf-card { transition:transform .35s ease,background .35s ease,box-shadow .35s ease; }
+.sf-card:hover { transform:translateY(-6px); box-shadow:0 24px 46px rgba(20,56,79,.16); }
 @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
+@keyframes sfOverlayIn { from { opacity:0; } to { opacity:1; } }
+@keyframes sfLinkIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+.sf-menu-link { animation:sfLinkIn .5s cubic-bezier(.22,1,.36,1) both; }
 @media (max-width:760px) { .sf-step-line { display:none; } }
 @media (max-width:680px) {
   .sf-hero-content { left:6vw !important; right:6vw !important; bottom:13vh !important; }
