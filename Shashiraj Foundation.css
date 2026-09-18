@@ -10,6 +10,74 @@ details[open] .faq-plus { transform:rotate(45deg); }
 #home, #about, #services, #special-care, #senior-care, #gallery, #admissions, #locations, #contact { scroll-margin-top:90px; }
 .sf-card { transition:transform .35s ease,background .35s ease,box-shadow .35s ease; }
 .sf-card:hover { transform:translateY(-6px); box-shadow:0 24px 46px rgba(20,56,79,.16); }
+/* Gallery — image tiles */
+.sf-gallery-item { position:relative; overflow:hidden; cursor:pointer; display:block; width:100%; height:100%; border:0; padding:0; margin:0; background:none; font:inherit; text-align:inherit; appearance:none; opacity:0; }
+.sf-gallery-item image-slot { transition:transform .6s cubic-bezier(.16,1,.3,1); }
+.sf-gallery-item:hover image-slot, .sf-gallery-item:focus-visible image-slot { transform:scale(1.05); }
+.sf-gallery-item:focus-visible { outline:2px solid #4C8B3F; outline-offset:3px; }
+.sf-gallery-item.sf-reveal { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) both; }
+.sf-gallery-feat .sf-gallery-item:nth-child(2) { animation-delay:.08s; }
+.sf-gallery-feat .sf-gallery-item:nth-child(3) { animation-delay:.16s; }
+.sf-gallery-feat .sf-gallery-item:nth-child(4) { animation-delay:.24s; }
+.sf-gallery-feat .sf-gallery-item:nth-child(5) { animation-delay:.1s; }
+.sf-gallery-feat .sf-gallery-item:nth-child(6) { animation-delay:.18s; }
+.sf-gallery-feat .sf-gallery-item:nth-child(7) { animation-delay:.1s; }
+.sf-gallery-feat .sf-gallery-item:nth-child(8) { animation-delay:.2s; }
+
+/* Gallery — hover overlay + caption */
+.sf-gallery-overlay { position:absolute; inset:0; background:linear-gradient(180deg,transparent 50%,rgba(22,51,28,.62) 100%); opacity:0; transition:opacity .5s ease; pointer-events:none; }
+.sf-gallery-item:hover .sf-gallery-overlay, .sf-gallery-item:focus-visible .sf-gallery-overlay { opacity:1; }
+.sf-gallery-cap { position:absolute; left:0; right:0; bottom:0; padding:18px 20px; color:#fff; font-size:13px; font-weight:600; letter-spacing:.2px; text-align:left; opacity:0; transform:translateY(8px); transition:opacity .5s ease,transform .5s ease; pointer-events:none; }
+.sf-gallery-item:hover .sf-gallery-cap, .sf-gallery-item:focus-visible .sf-gallery-cap { opacity:1; transform:translateY(0); }
+
+/* Gallery — editorial bento grid: hero + 3 supporting (top), second large + small pair + wide banner (bottom) */
+.sf-gallery-feat { display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:220px 220px 200px 240px; grid-template-areas:"hero hero med1 med3" "hero hero med2 med3" "s1 s2 lg2 lg2" "gw gw lg2 lg2"; gap:20px; }
+.sf-gallery-feat .gh { grid-area:hero; }
+.sf-gallery-feat .gm1 { grid-area:med1; }
+.sf-gallery-feat .gm2 { grid-area:med2; }
+.sf-gallery-feat .gm3 { grid-area:med3; }
+.sf-gallery-feat .gs1 { grid-area:s1; }
+.sf-gallery-feat .gs2 { grid-area:s2; }
+.sf-gallery-feat .gw { grid-area:gw; }
+.sf-gallery-feat .gl2 { grid-area:lg2; }
+@media (max-width:900px) {
+  .sf-gallery-feat { grid-template-columns:1fr 1fr; grid-template-rows:260px 200px 220px 180px 200px 260px; grid-template-areas:"hero hero" "med1 med2" "med3 med3" "s1 s2" "gw gw" "lg2 lg2"; gap:16px; }
+}
+@media (max-width:520px) {
+  .sf-gallery-feat { grid-template-columns:1fr; grid-template-rows:260px 200px 200px 220px 180px 180px 200px 260px; grid-template-areas:"hero" "med1" "med2" "med3" "s1" "s2" "gw" "lg2"; gap:16px; }
+}
+
+/* Gallery — "view all" reveal */
+.sf-gallery-more { margin-top:32px; }
+.sf-gallery-more summary { display:inline-flex; align-items:center; gap:8px; padding:14px 26px; border-radius:999px; border:1px solid rgba(27,42,34,.18); font-size:13px; font-weight:600; letter-spacing:.4px; color:#2C5A33; transition:background .25s ease,border-color .25s ease; list-style:none; }
+.sf-gallery-more summary::-webkit-details-marker { display:none; }
+.sf-gallery-more summary:hover, .sf-gallery-more summary:focus-visible { background:#F2F6EE; border-color:#4C8B3F; }
+.sf-gallery-more[open] summary { margin-bottom:4px; }
+.sf-gallery-more .sf-gallery-item { opacity:1; }
+.sf-gallery-more .sf-gallery-item.sf-reveal { animation:fadeUp .6s cubic-bezier(.22,1,.36,1) both; }
+
+/* Gallery — lightbox */
+.sf-lightbox { position:fixed; inset:0; z-index:200; background:rgba(11,26,17,.94); backdrop-filter:blur(8px); display:flex; align-items:center; justify-content:center; padding:clamp(16px,4vw,40px); animation:fadeUp .35s ease both; }
+.sf-lightbox-stage { position:relative; display:flex; flex-direction:column; align-items:center; max-width:min(1100px,92vw); max-height:88vh; }
+.sf-lightbox-img { display:block; max-width:100%; max-height:76vh; width:auto; height:auto; border-radius:14px; box-shadow:0 30px 80px rgba(0,0,0,.4); object-fit:contain; }
+.sf-lightbox-cap { margin-top:16px; display:flex; align-items:center; gap:16px; color:#fff; font-size:13px; letter-spacing:.2px; text-align:center; }
+.sf-lightbox-cap span:first-child { font-weight:600; }
+.sf-lightbox-count { opacity:.6; white-space:nowrap; }
+.sf-lightbox-btn { appearance:none; border:1px solid rgba(255,255,255,.45); background:rgba(255,255,255,.1); backdrop-filter:blur(10px); color:#fff; border-radius:50%; cursor:pointer; display:grid; place-items:center; transition:background .25s ease; }
+.sf-lightbox-btn:hover, .sf-lightbox-btn:focus-visible { background:rgba(255,255,255,.24); }
+.sf-lightbox-close { position:absolute; top:0; right:0; width:44px; height:44px; font-size:16px; margin:clamp(10px,2vw,18px); }
+.sf-lightbox-nav { position:fixed; top:50%; transform:translateY(-50%); width:52px; height:52px; font-size:26px; line-height:1; }
+.sf-lightbox-prev { left:clamp(10px,3vw,32px); }
+.sf-lightbox-next { right:clamp(10px,3vw,32px); }
+@media (max-width:640px) {
+  .sf-lightbox-nav { width:42px; height:42px; font-size:20px; }
+  .sf-lightbox-close { width:38px; height:38px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .sf-gallery-item { opacity:1 !important; }
+  .sf-gallery-item.sf-reveal, .sf-lightbox { animation:none !important; }
+  .sf-gallery-item image-slot, .sf-gallery-overlay, .sf-gallery-cap { transition:none !important; }
+}
 @keyframes fadeUp { from { opacity:0; transform:translateY(22px); } to { opacity:1; transform:translateY(0); } }
 @keyframes sfOverlayIn { from { opacity:0; } to { opacity:1; } }
 @keyframes sfLinkIn { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
