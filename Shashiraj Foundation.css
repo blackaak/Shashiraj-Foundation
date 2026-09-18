@@ -7,7 +7,7 @@ a:hover { color:#4C8B3F; }
 summary::-webkit-details-marker { display:none; }
 summary { list-style:none; cursor:pointer; }
 details[open] .faq-plus { transform:rotate(45deg); }
-#home, #about, #services, #special-care, #senior-care, #gallery, #admissions, #locations, #contact { scroll-margin-top:90px; }
+#home, #services, #care-options, #gallery, #admissions, #locations, #contact { scroll-margin-top:90px; }
 .sf-card { transition:transform .35s ease,background .35s ease,box-shadow .35s ease; }
 .sf-card:hover { transform:translateY(-6px); box-shadow:0 24px 46px rgba(20,56,79,.16); }
 /* Gallery — image tiles */
