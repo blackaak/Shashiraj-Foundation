@@ -11,47 +11,14 @@
 <meta name="design_doc_mode" content="page">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
 <script src="./image-slot.js"></script>
 <link rel="stylesheet" href="./Shashiraj Foundation.css">
 </helmet>
 
 <div style="width:100%">
 
-<header ref="{{ headerRef }}" style="position:fixed;z-index:1000;top:0;left:0;width:100%;display:flex;align-items:center;gap:32px;padding:20px 5vw;color:#fff;transition:background .35s ease,padding .35s ease,box-shadow .35s ease,color .35s ease">
-  <a href="#home" style="display:flex;align-items:center;gap:12px;color:inherit;font-weight:700;letter-spacing:1.4px;line-height:1">
-    <img src="assets/logo-ngo.png" alt="Shashiraj Foundation logo" style="width:46px;height:46px;object-fit:contain;border-radius:50%;background:#fff;display:block;padding:3px">
-    <span style="font-size:15px">SHASHIRAJ<br><span style="font-size:8px;letter-spacing:4.5px;opacity:.85">FOUNDATION</span></span>
-  </a>
-  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-    <nav style="display:flex;align-items:center;gap:30px;margin-left:auto">
-      <a href="#about" style="color:inherit;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap">About</a>
-      <a href="#services" style="color:inherit;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap">Services</a>
-      <a href="#special-care" style="color:inherit;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap">Special Care</a>
-      <a href="#senior-care" style="color:inherit;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap">Senior Care</a>
-      <a href="#gallery" style="color:inherit;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap">Gallery</a>
-      <a href="#locations" style="color:inherit;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase;white-space:nowrap">Locations</a>
-    </nav>
-    <a href="#contact" style="display:inline-flex;align-items:center;gap:12px;padding:11px 12px 11px 22px;border-radius:999px;background:#fff;color:#14384F;font-size:12px;font-weight:600;letter-spacing:.3px;white-space:nowrap;box-shadow:0 8px 24px rgba(14,42,32,.18)" style-hover="background:#4C8B3F;color:#fff">
-      Get in Touch
-      <span style="width:30px;height:30px;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:13px">↗</span>
-    </a>
-  </sc-if>
-  <sc-if value="{{ narrow }}" hint-placeholder-val="{{ false }}">
-    <button onClick="{{ toggleMenu }}" aria-label="Open menu" style="margin-left:auto;width:48px;height:48px;border:1px solid rgba(255,255,255,.4);border-radius:50%;background:rgba(255,255,255,.12);backdrop-filter:blur(10px);color:inherit;font:inherit;font-size:18px;cursor:pointer;display:grid;place-items:center">{{ menuIcon }}</button>
-  </sc-if>
-  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <nav style="position:absolute;left:5vw;right:5vw;top:84px;display:grid;gap:2px;padding:18px;border-radius:24px;background:#14384F;box-shadow:0 24px 55px rgba(12,38,28,.3)">
-      <a onClick="{{ closeMenu }}" href="#about" style="padding:14px 16px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase" style-hover="background:rgba(255,255,255,.1)">About</a>
-      <a onClick="{{ closeMenu }}" href="#services" style="padding:14px 16px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase" style-hover="background:rgba(255,255,255,.1)">Services</a>
-      <a onClick="{{ closeMenu }}" href="#special-care" style="padding:14px 16px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase" style-hover="background:rgba(255,255,255,.1)">Special Care</a>
-      <a onClick="{{ closeMenu }}" href="#senior-care" style="padding:14px 16px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase" style-hover="background:rgba(255,255,255,.1)">Senior Care</a>
-      <a onClick="{{ closeMenu }}" href="#gallery" style="padding:14px 16px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase" style-hover="background:rgba(255,255,255,.1)">Gallery</a>
-      <a onClick="{{ closeMenu }}" href="#locations" style="padding:14px 16px;border-radius:14px;color:#fff;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase" style-hover="background:rgba(255,255,255,.1)">Locations</a>
-      <a onClick="{{ closeMenu }}" href="#contact" style="margin-top:8px;padding:15px 16px;border-radius:999px;background:#4C8B3F;color:#fff;text-align:center;font-size:13px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase">Get in Touch</a>
-      </nav>
-  </sc-if>
-</header>
+<dc-import name="SiteNav" hint-size="100%,70px"></dc-import>
 
 <section id="home" class="sf-hero" style="position:relative;height:100vh;min-height:700px;overflow:hidden;background:linear-gradient(135deg,#1B4436,#14384F)">
   <div class="sf-hero-video" style="position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none">
@@ -78,7 +45,7 @@
       <h2 style="margin:0;font-family:'Playfair Display',serif;font-size:clamp(38px,4.8vw,70px);line-height:1.06;letter-spacing:-1.8px;font-weight:600;text-wrap:pretty">Care with purpose.<br><span style="color:#4C8B3F">Support with heart.</span></h2>
       <div style="max-width:560px">
         <p style="margin:0;font-size:18px;line-height:1.8;color:#4A5A4E">Shashiraj Foundation brings together care, education, therapy and residential support under one roof — with a focus on safety, dignity, inclusion and individual attention.</p>
-        <a href="#about" style="display:inline-flex;align-items:center;gap:12px;margin-top:28px;padding:12px 22px;border-radius:999px;border:1px solid rgba(76,139,63,.35);color:#2C5A33;font-size:12px;font-weight:600;letter-spacing:.4px" style-hover="background:#E4EEDC">Discover our story <span>→</span></a>
+        <a href="About.dc.html" style="display:inline-flex;align-items:center;gap:12px;margin-top:28px;padding:12px 22px;border-radius:999px;border:1px solid rgba(76,139,63,.35);color:#2C5A33;font-size:12px;font-weight:600;letter-spacing:.4px" style-hover="background:#E4EEDC">Discover our story <span>→</span></a>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1px;margin-top:clamp(48px,6vw,84px);background:rgba(27,42,34,.1);border-radius:24px;overflow:hidden">
@@ -101,7 +68,7 @@
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:16px">
-      <a href="#special-care" style="flex:1 1 100%;min-width:0;position:relative;min-height:300px;padding:34px;border-radius:28px;background:#2C5A33;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden" style-hover="background:#26512D">
+      <a href="ChildDevelopment.dc.html" style="flex:1 1 100%;min-width:0;position:relative;min-height:300px;padding:34px;border-radius:28px;background:#2C5A33;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden" style-hover="background:#26512D">
         <div style="position:absolute;width:280px;height:280px;right:-90px;bottom:-110px;border-radius:50%;border:1px solid rgba(255,255,255,.18)"></div>
           <span style="font-size:11px;letter-spacing:2px;opacity:.7">01</span>
         <div style="position:relative">
@@ -111,7 +78,7 @@
         <span style="position:absolute;right:28px;bottom:28px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.16);display:grid;place-items:center;font-size:16px">↗</span>
       </a>
 
-      <a href="#special-care" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#F2F6EE;border:1px solid rgba(27,42,34,.08);display:flex;flex-direction:column;justify-content:space-between" style-hover="background:#E4EEDC">
+      <a href="ChildDevelopment.dc.html" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#F2F6EE;border:1px solid rgba(27,42,34,.08);display:flex;flex-direction:column;justify-content:space-between" style-hover="background:#E4EEDC">
           <span style="font-size:11px;letter-spacing:2px;color:#5C6B60">02</span>
         <div>
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#14384F">Hostel</h3>
@@ -120,7 +87,7 @@
         <span style="position:absolute;right:24px;bottom:24px;width:38px;height:38px;border-radius:50%;background:#fff;color:#2C5A33;display:grid;place-items:center;font-size:15px">↗</span>
       </a>
 
-      <a href="#special-care" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#F2F6EE;border:1px solid rgba(27,42,34,.08);display:flex;flex-direction:column;justify-content:space-between" style-hover="background:#E4EEDC">
+      <a href="ChildDevelopment.dc.html" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#F2F6EE;border:1px solid rgba(27,42,34,.08);display:flex;flex-direction:column;justify-content:space-between" style-hover="background:#E4EEDC">
           <span style="font-size:11px;letter-spacing:2px;color:#5C6B60">03</span>
         <div>
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#14384F">Therapy</h3>
@@ -129,7 +96,7 @@
         <span style="position:absolute;right:24px;bottom:24px;width:38px;height:38px;border-radius:50%;background:#fff;color:#2C5A33;display:grid;place-items:center;font-size:15px">↗</span>
       </a>
 
-      <a href="#special-care" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#F2F6EE;border:1px solid rgba(27,42,34,.08);display:flex;flex-direction:column;justify-content:space-between" style-hover="background:#E4EEDC">
+      <a href="ChildDevelopment.dc.html" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#F2F6EE;border:1px solid rgba(27,42,34,.08);display:flex;flex-direction:column;justify-content:space-between" style-hover="background:#E4EEDC">
         <span style="font-size:11px;letter-spacing:2px;color:#5C6B60">04</span>
         <div>
           <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:30px;font-weight:600;color:#14384F">Education</h3>
@@ -138,7 +105,7 @@
         <span style="position:absolute;right:24px;bottom:24px;width:38px;height:38px;border-radius:50%;background:#fff;color:#2C5A33;display:grid;place-items:center;font-size:15px">↗</span>
       </a>
 
-      <a href="#senior-care" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#14384F;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden" style-hover="background:#0E2A3B">
+      <a href="OldAgeCare.dc.html" style="flex:1 1 230px;min-width:0;position:relative;min-height:300px;padding:30px;border-radius:28px;background:#14384F;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden" style-hover="background:#0E2A3B">
         <div style="position:absolute;width:240px;height:240px;right:-90px;bottom:-110px;border-radius:50%;border:1px solid rgba(255,255,255,.18)"></div>
         <span style="font-size:11px;letter-spacing:2px;opacity:.7">05</span>
         <div style="position:relative">
@@ -151,117 +118,45 @@
   </div>
 </section>
 
-<section id="about" style="padding:clamp(80px,9vw,140px) 7vw;background:#F2F6EE">
-  <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(40px,6vw,100px);align-items:center">
-    <div style="position:relative;min-width:0;display:flex;align-items:center;justify-content:center">
-      <div style="width:min(440px,92%);aspect-ratio:1;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#E4EEDC;border-radius:48% 52% 45% 55% / 50% 45% 55% 50%;box-shadow:0 30px 70px rgba(27,64,40,.14)">
-        <img src="assets/logo-ngo.png" alt="Shashiraj Foundation" style="width:74%;height:74%;object-fit:contain;display:block">
-      </div>
-      <div style="position:absolute;right:2%;bottom:6%;width:124px;height:124px;display:grid;place-content:center;border-radius:50%;background:#4C8B3F;color:#fff;text-align:center;font-size:10px;line-height:1.7;font-weight:700;letter-spacing:1.4px;box-shadow:0 18px 34px rgba(27,64,40,.2)">CARE<br>•<br>DIGNITY<br>•<br>GROWTH</div>
-    </div>
-    <div style="min-width:0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:11px;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;color:#4C8B3F"><span style="width:30px;height:1px;background:#4C8B3F;display:block"></span>Who we are</div>
-      <h2 style="margin:0;font-family:'Playfair Display',serif;font-size:clamp(38px,4.8vw,70px);line-height:1.06;letter-spacing:-1.8px;font-weight:600">A safe space to<br><span style="color:#4C8B3F">learn, live &amp; grow.</span></h2>
-      <p style="max-width:640px;margin:24px 0 0;font-size:18px;line-height:1.85;color:#4A5A4E">Our work is rooted in the belief that every person deserves a supportive environment where they can feel safe, valued and understood.</p>
-      <p style="max-width:640px;margin:18px 0 0;font-size:18px;line-height:1.85;color:#4A5A4E">Our services include special child development, day care, residential hostel support, therapy, education and old age care.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:30px">
-        <span style="padding:10px 18px;border-radius:999px;background:#E4EEDC;color:#2C5A33;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase">Safe</span>
-        <span style="padding:10px 18px;border-radius:999px;background:#E4EEDC;color:#2C5A33;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase">Secure</span>
-        <span style="padding:10px 18px;border-radius:999px;background:#E4EEDC;color:#2C5A33;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase">Caring</span>
-        <span style="padding:10px 18px;border-radius:999px;background:#E4EEDC;color:#2C5A33;font-size:11px;font-weight:600;letter-spacing:1.4px;text-transform:uppercase">Nurturing</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="special-care" style="padding:clamp(80px,9vw,130px) 7vw;background:#14384F;color:#fff">
+<section id="care-options" style="padding:clamp(80px,9vw,130px) 7vw;background:#F2F6EE">
   <div style="max-width:1320px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,70px);align-items:end;margin-bottom:clamp(40px,5vw,64px)">
-      <div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:11px;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;color:#A8D48A"><span style="width:30px;height:1px;background:#A8D48A;display:block"></span>Special child development</div>
-        <h2 style="margin:0;font-family:'Playfair Display',serif;font-size:clamp(38px,4.8vw,68px);line-height:1.06;font-weight:600">Support that meets<br><em style="color:#A8D48A;font-style:normal">every child where they are.</em></h2>
-      </div>
-      <p style="margin:0;color:#C2D3CB;line-height:1.85;font-size:17px;max-width:440px">Personalised care, therapy and education designed to support development, confidence and independence.</p>
-    </div>
-
-    <div style="display:flex;flex-wrap:wrap;gap:16px">
-      <article style="flex:1 1 280px;min-width:0;padding:34px;border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)">
-        <span style="font-size:11px;letter-spacing:2px;color:#A8D48A">01</span>
-        <h3 style="margin:22px 0 8px;font-family:'Playfair Display',serif;font-size:30px;font-weight:600">Therapy &amp; Development</h3>
-        <p style="margin:0 0 22px;font-size:14px;line-height:1.7;color:#B9CBC2">Clinical programmes led by trained therapists, planned per child.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Autism programmes</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">ABA therapy</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Behaviour therapy</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">CBT</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Occupational therapy</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Speech therapy</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Learning disability support</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Early intervention</span>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:11px;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;color:#4C8B3F"><span style="width:30px;height:1px;background:#4C8B3F;display:block"></span>Choose your path</div>
+    <h2 style="margin:0 0 clamp(28px,3.5vw,40px);font-family:'Playfair Display',serif;font-size:clamp(32px,4vw,54px);line-height:1.08;letter-spacing:-1.4px;font-weight:600;max-width:760px">Who are you looking for care for?</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:clamp(18px,2.2vw,28px)">
+      <a href="OldAgeCare.dc.html" style="display:block;position:relative;min-height:420px;border-radius:26px;overflow:hidden;text-decoration:none;background:#14384F;transition:transform .35s ease,box-shadow .35s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 26px 54px rgba(20,56,79,.24)';this.querySelector('.sf-care-z').style.transform='scale(1.06)';this.querySelector('.sf-care-arrow').style.transform='translate(3px,-3px)'" onmouseout="this.style.transform='none';this.style.boxShadow='none';this.querySelector('.sf-care-z').style.transform='none';this.querySelector('.sf-care-arrow').style.transform='none'">
+        <div class="sf-care-z" style="position:absolute;inset:0;transition:transform .8s ease"><image-slot id="sf-care-elder" shape="rect" placeholder="Elder resident with a caregiver" src="uploads/WhatsApp Image 2026-09-18 at 19.12.43.jpeg"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,36,54,.94) 0%,rgba(11,36,54,.45) 52%,rgba(11,36,54,.08) 100%)"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,2.6vw,34px);min-height:420px">
+          <span style="position:absolute;top:22px;left:clamp(24px,2.6vw,34px);display:inline-flex;align-items:center;gap:8px;padding:8px 15px;background:#F5C74A;color:#14384F;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:100px">For seniors</span>
+          <span class="sf-care-arrow" style="position:absolute;top:20px;right:clamp(24px,2.6vw,34px);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);transition:transform .35s ease">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14384F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <h3 style="font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,2.6vw,34px);margin:0 0 12px;color:#fff;letter-spacing:-.6px">Old Age Care Home</h3>
+          <p style="font-size:15.5px;line-height:1.65;color:rgba(255,255,255,.88);margin:0 0 20px;max-width:40ch">Residential care with 24×7 attendants, in-house clinic, physiotherapy, yoga, meals and a full social calendar.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span style="padding:7px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.4);font-size:12.5px;color:#fff">24×7 attendants</span>
+            <span style="padding:7px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.4);font-size:12.5px;color:#fff">In-house clinic</span>
+            <span style="padding:7px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.4);font-size:12.5px;color:#fff">Outings &amp; picnics</span>
+          </div>
         </div>
-      </article>
-
-      <article style="flex:1 1 280px;min-width:0;padding:34px;border-radius:28px;background:#4C8B3F">
-        <span style="font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.8)">02</span>
-        <h3 style="margin:22px 0 8px;font-family:'Playfair Display',serif;font-size:30px;font-weight:600">Day Care</h3>
-        <p style="margin:0 0 22px;font-size:14px;line-height:1.7;color:rgba(255,255,255,.86)">Morning to evening care with a structured day and regular parent updates.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Morning–evening care</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Trained care staff</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Structured routine</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Nutritious meals</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Indoor &amp; outdoor activities</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Group activities</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">School readiness</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(255,255,255,.18);font-size:12px">Parent guidance</span>
+      </a>
+      <a href="ChildDevelopment.dc.html" style="display:block;position:relative;min-height:420px;border-radius:26px;overflow:hidden;text-decoration:none;background:#14384F;transition:transform .35s ease,box-shadow .35s ease" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 26px 54px rgba(20,56,79,.24)';this.querySelector('.sf-care-z').style.transform='scale(1.06)';this.querySelector('.sf-care-arrow').style.transform='translate(3px,-3px)'" onmouseout="this.style.transform='none';this.style.boxShadow='none';this.querySelector('.sf-care-z').style.transform='none';this.querySelector('.sf-care-arrow').style.transform='none'">
+        <div class="sf-care-z" style="position:absolute;inset:0;transition:transform .8s ease"><image-slot id="sf-care-child" shape="rect" placeholder="Child in a therapy or learning session" src="uploads/WhatsApp Image 2026-09-18 at 19.12.42 (2).jpeg"></image-slot></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,36,54,.94) 0%,rgba(11,36,54,.45) 52%,rgba(11,36,54,.08) 100%)"></div>
+        <div style="position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(24px,2.6vw,34px);min-height:420px">
+          <span style="position:absolute;top:22px;left:clamp(24px,2.6vw,34px);display:inline-flex;align-items:center;gap:8px;padding:8px 15px;background:#4C8B3F;color:#fff;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-radius:100px">For special children</span>
+          <span class="sf-care-arrow" style="position:absolute;top:20px;right:clamp(24px,2.6vw,34px);display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.92);transition:transform .35s ease">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#14384F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+          </span>
+          <h3 style="font-family:'Playfair Display',serif;font-weight:600;font-size:clamp(26px,2.6vw,34px);margin:0 0 12px;color:#fff;letter-spacing:-.6px">Day Care, Hostel &amp; Development</h3>
+          <p style="font-size:15.5px;line-height:1.65;color:rgba(255,255,255,.88);margin:0 0 20px;max-width:40ch">Morning-to-evening day care or 24×7 hostel, with therapy, special education and a homely daily routine.</p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <span style="padding:7px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.4);font-size:12.5px;color:#fff">Day care</span>
+            <span style="padding:7px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.4);font-size:12.5px;color:#fff">Hostel</span>
+            <span style="padding:7px 13px;border-radius:100px;border:1px solid rgba(255,255,255,.4);font-size:12.5px;color:#fff">Transport</span>
+          </div>
         </div>
-      </article>
-
-      <article style="flex:1 1 280px;min-width:0;padding:34px;border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)">
-        <span style="font-size:11px;letter-spacing:2px;color:#A8D48A">03</span>
-        <h3 style="margin:22px 0 8px;font-family:'Playfair Display',serif;font-size:30px;font-weight:600">Residential Hostel</h3>
-        <p style="margin:0 0 22px;font-size:14px;line-height:1.7;color:#B9CBC2">A supervised home away from home, with health and hygiene looked after.</p>
-        <div style="display:flex;flex-wrap:wrap;gap:8px">
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">24×7 supervision</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Secure facility</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">CCTV &amp; security</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Hygienic surroundings</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Health check-ups</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Daily living assistance</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Laundry &amp; housekeeping</span>
-          <span style="padding:9px 15px;border-radius:999px;background:rgba(168,212,138,.14);border:1px solid rgba(168,212,138,.3);font-size:12px">Comfortable rooms</span>
-        </div>
-      </article>
-    </div>
-    <a href="ChildDevelopment.dc.html" style="display:inline-flex;align-items:center;gap:12px;margin-top:32px;padding:15px 26px;border-radius:999px;background:#4C8B3F;color:#fff;font-size:13px;font-weight:600" style-hover="background:#3E7433">Visit our Child Development Programme <span>→</span></a>
-  </div>
-</section>
-
-<section id="senior-care" style="padding:clamp(80px,9vw,140px) 7vw;background:#E4EEDC">
-  <div style="max-width:1320px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(40px,6vw,90px);align-items:center">
-    <div style="min-width:0">
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px;font-size:11px;font-weight:600;letter-spacing:2.6px;text-transform:uppercase;color:#2C5A33"><span style="width:30px;height:1px;background:#2C5A33;display:block"></span>Old age care</div>
-      <h2 style="margin:0;font-family:'Playfair Display',serif;font-size:clamp(38px,4.8vw,70px);line-height:1.06;letter-spacing:-1.8px;font-weight:600;color:#14384F">Comfort,<br><span style="color:#4C8B3F">companionship &amp; care.</span></h2>
-      <p style="max-width:580px;margin:24px 0 34px;font-size:18px;line-height:1.85;color:#4A5A4E">A supportive old age care environment focused on protection, comfort, health and meaningful everyday living.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px 26px">
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>24×7 care attendant</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>Nutritious vegetarian meals</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>In-house clinic &amp; doctor visits</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>Physiotherapy &amp; homeopathy</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>Yoga &amp; meditation</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>Indoor games &amp; library</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>Housekeeping &amp; laundry</span>
-        <span style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid rgba(27,42,34,.12);font-size:14px;font-weight:500"><span style="width:18px;height:18px;flex:0 0 auto;border-radius:50%;background:#4C8B3F;color:#fff;display:grid;place-items:center;font-size:10px">✓</span>24×7 security &amp; CCTV</span>
-      </div>
-      <a href="OldAgeCare.dc.html" style="display:inline-flex;align-items:center;gap:12px;margin-top:32px;padding:15px 26px;border-radius:999px;background:#14384F;color:#fff;font-size:13px;font-weight:600" style-hover="background:#0E2A3B">Visit our Old Age Care Home <span>→</span></a>
-    </div>
-    <div style="min-width:0;position:relative;min-height:480px;display:flex;align-items:center;justify-content:center;overflow:hidden;border-radius:32px;background:#2C5A33">
-      <div style="position:absolute;width:380px;height:380px;border:1px solid rgba(255,255,255,.18);border-radius:50%"></div>
-      <div style="position:absolute;width:530px;height:530px;border:1px solid rgba(255,255,255,.12);border-radius:50%"></div>
-      <div style="z-index:1;width:250px;padding:38px 28px;border-radius:28px;display:flex;flex-direction:column;align-items:center;text-align:center;background:#fff;color:#14384F;box-shadow:0 24px 50px rgba(12,38,28,.28)">
-        <div style="width:96px;height:96px;display:grid;place-items:center;margin-bottom:22px;border-radius:50%;background:#E4EEDC;color:#4C8B3F;font-family:'Playfair Display',serif;font-size:56px">S</div>
-        <strong style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;line-height:1.25">Protection<br>&amp; Care</strong>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -551,11 +446,11 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
           WhatsApp us
         </a>
+        <a href="mailto:shashirajfoundation13@gmail.com" style="display:inline-flex;align-items:center;gap:12px;padding:15px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.32);color:#fff;font-size:14px;font-weight:600" style-hover="background:rgba(255,255,255,.1)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          Email us
+        </a>
       </div>
-      <a href="mailto:shashirajfoundation13@gmail.com" style="display:inline-flex;align-items:center;gap:12px;margin-top:14px;padding:15px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.32);color:#fff;font-size:14px;font-weight:600" style-hover="background:rgba(255,255,255,.1)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-        Email us
-      </a>
       <p style="margin:28px 0 0;font-size:13px;color:rgba(255,255,255,.5)">Other numbers · 011-22323980 · 97172 98015 · 99109 99389 · 98113 78933</p>
     </div>
     <div style="min-width:0;display:grid;gap:14px;align-content:start">
@@ -564,7 +459,7 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           Special Child Day Care &amp; Hostel
         </div>
-        <strong style="display:block;font-size:16px;line-height:1.6;font-weight:600">C-7, Near Union Bank, Opp. Pushpanjali Hospital, Near Karkarduma Metro Station, Anand Vihar, Delhi-92</strong>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=28.676149199050727,77.29141202539363" target="_blank" rel="noopener" style="display:block;font-size:16px;line-height:1.6;font-weight:600;color:inherit;text-decoration:none" style-hover="color:#A8D48A">C-7, Near Union Bank, Opp. Pushpanjali Hospital, Near Karkarduma Metro Station, Anand Vihar, Delhi-92</a>
         <div style="margin-top:12px;font-size:14px;color:rgba(255,255,255,.75)">99102 29389 · 97172 98015</div>
       </div>
       <div style="padding:26px 28px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)">
@@ -572,7 +467,7 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
           Old Age Care Home
         </div>
-        <strong style="display:block;font-size:16px;line-height:1.6;font-weight:600">H. No. 678, Near OBC Bank, Kabool Nagar, Shahdara, Delhi-110032</strong>
+        <a href="https://www.google.com/maps/dir/?api=1&destination=28.654106051247286,77.30979085888816" target="_blank" rel="noopener" style="display:block;font-size:16px;line-height:1.6;font-weight:600;color:inherit;text-decoration:none" style-hover="color:#A8D48A">H. No. 678, Near OBC Bank, Kabool Nagar, Shahdara, Delhi-110032</a>
         <div style="margin-top:12px;font-size:14px;color:rgba(255,255,255,.75)">011-22323980 · 99102 29389 · 99109 99389 · 98113 78933</div>
       </div>
       <div style="padding:26px 28px;border-radius:22px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)">
@@ -580,8 +475,8 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           Email &amp; Web
         </div>
-        <strong style="display:block;font-size:16px;line-height:1.6;font-weight:600;word-break:break-word">shashirajfoundation13@gmail.com</strong>
-        <div style="margin-top:6px;font-size:16px;font-weight:600;word-break:break-word">www.shashirajafoundation.com</div>
+        <a href="mailto:shashirajfoundation13@gmail.com" style="display:block;font-size:16px;line-height:1.6;font-weight:600;word-break:break-word;color:inherit;text-decoration:none" style-hover="color:#A8D48A">shashirajfoundation13@gmail.com</a>
+        <a href="https://www.shashirajafoundation.com" target="_blank" rel="noopener" style="display:block;margin-top:6px;font-size:16px;font-weight:600;word-break:break-word;color:inherit;text-decoration:none" style-hover="color:#A8D48A">www.shashirajafoundation.com</a>
       </div>
     </div>
   </div>
@@ -602,8 +497,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440}}">
 class Component extends DCLogic {
-  state = { muted: true, wide: true, menuOpen: false, lightboxOpen: false, lightboxIndex: 0 };
-  headerRef = React.createRef();
+  state = { muted: true, lightboxOpen: false, lightboxIndex: 0 };
   card0Ref = React.createRef();
   card1Ref = React.createRef();
 
@@ -635,16 +529,9 @@ class Component extends DCLogic {
     });
     const activePhoto = this.galleryPhotos[this.state.lightboxIndex] || { src: '', caption: '' };
     return {
-      headerRef: this.headerRef,
       card0Ref: this.card0Ref,
       card1Ref: this.card1Ref,
       soundIcon: this.state.muted ? '🔇' : '🔊',
-      wide: this.state.wide,
-      narrow: !this.state.wide,
-      menuOpen: !this.state.wide && this.state.menuOpen,
-      menuIcon: this.state.menuOpen ? '✕' : '☰',
-      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
-      closeMenu: () => this.setState({ menuOpen: false }),
       toggleSound: () => {
         const p = this.player;
         if (!p) return;
@@ -667,30 +554,8 @@ class Component extends DCLogic {
   }
 
   componentDidMount() {
-    this.onScroll = () => {
-      const h = this.headerRef.current;
-      if (!h) return;
-      const on = window.scrollY > 60;
-      h.style.background = on ? 'rgba(242,246,238,.92)' : 'transparent';
-      h.style.backdropFilter = on ? 'blur(18px)' : 'none';
-      h.style.color = on ? '#14384F' : '#ffffff';
-      h.style.boxShadow = on ? '0 8px 30px rgba(20,56,79,.08)' : 'none';
-      h.style.paddingTop = on ? '12px' : '20px';
-      h.style.paddingBottom = on ? '12px' : '20px';
-    };
-    window.addEventListener('scroll', this.onScroll, { passive: true });
-    this.onScroll();
-    this.onResize = () => {
-      const wide = window.innerWidth >= 1000;
-      if (wide !== this.state.wide) this.setState({ wide, menuOpen: false });
-    };
-    window.addEventListener('resize', this.onResize);
-    this.onResize();
     this.onKeyDown = (e) => {
-      if (e.key === 'Escape') {
-        if (this.state.lightboxOpen) this.setState({ lightboxOpen: false });
-        else if (this.state.menuOpen) this.setState({ menuOpen: false });
-      }
+      if (e.key === 'Escape' && this.state.lightboxOpen) this.setState({ lightboxOpen: false });
       if (!this.state.lightboxOpen) return;
       const n = this.galleryPhotos.length;
       if (e.key === 'ArrowRight') this.setState(s => ({ lightboxIndex: (s.lightboxIndex + 1) % n }));
@@ -713,12 +578,10 @@ class Component extends DCLogic {
   }
 
   componentDidUpdate() {
-    document.body.style.overflow = ((!this.state.wide && this.state.menuOpen) || this.state.lightboxOpen) ? 'hidden' : '';
+    document.body.style.overflow = this.state.lightboxOpen ? 'hidden' : '';
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScroll);
-    window.removeEventListener('resize', this.onResize);
     window.removeEventListener('keydown', this.onKeyDown);
     if (this.galleryObserver) this.galleryObserver.disconnect();
     document.body.style.overflow = '';

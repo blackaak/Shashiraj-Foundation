@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;justify-content:center;padding:13px clamp(12px,3vw,30px);pointer-events:none">
+  <div style="display:flex;align-items:center;gap:clamp(8px,1.2vw,16px);width:100%;max-width:{{ shellMax }};padding:9px 9px 9px 13px;border-radius:100px;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border:1px solid #E7E0CC;box-shadow:{{ shellShadow }};transition:max-width .5s cubic-bezier(.2,.7,.3,1),box-shadow .4s ease;pointer-events:auto">
+    <a href="Shashiraj%20Foundation.dc.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;margin-right:auto;min-width:0">
+      <img src="uploads/logo%20ngo.png" alt="Shashiraj Foundation" style="width:40px;height:40px;object-fit:contain;flex:none">
+      <span style="font-family:Newsreader,'Playfair Display',serif;font-size:clamp(15px,1.5vw,18px);font-weight:500;letter-spacing:-.01em;color:#0E3B66;white-space:nowrap">Shashiraj Foundation</span>
+    </a>
+    <nav aria-label="Primary" style="display:{{ navDisplay }};align-items:center;gap:2px">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="5">
+        <a href="{{ l.href }}" style="font-size:13.5px;font-weight:{{ l.weight }};padding:9px 14px;border-radius:100px;color:{{ l.color }};background:{{ l.bg }};white-space:nowrap;text-decoration:none;transition:background .25s ease,color .25s ease">{{ l.label }}</a>
+      </sc-for>
+    </nav>
+    <a href="Shashiraj%20Foundation.dc.html#contact" style="display:{{ navDisplay }};align-items:center;gap:8px;padding:11px 19px;background:#2F8F4E;color:#fff;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;transition:transform .25s cubic-bezier(.2,.7,.3,1),background .25s ease" onmouseover="this.style.background='#26743F';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#2F8F4E';this.style.transform='none'">Enquire Now
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+    </a>
+    <button type="button" onClick="{{ toggleMenu }}" aria-label="Menu" aria-expanded="{{ menuOpen }}" style="display:{{ burgerDisplay }};align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:#FDF2D4;border:1px solid #F0E3BC;cursor:pointer">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#0E3B66" stroke-width="1.9" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+    </button>
+  </div>
+</header>
+
+<div style="position:fixed;inset:0;z-index:59;background:#082B4D;display:{{ menuDisplay }};flex-direction:column;justify-content:center;padding:88px 26px 36px">
+  <button type="button" onClick="{{ toggleMenu }}" aria-label="Close" style="position:absolute;top:22px;right:22px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);cursor:pointer">
+    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+  </button>
+  <sc-for list="{{ links }}" as="l" hint-placeholder-count="5">
+    <a href="{{ l.href }}" style="display:flex;align-items:center;justify-content:space-between;font-family:Newsreader,'Playfair Display',serif;font-size:28px;color:#fff;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);text-decoration:none">{{ l.label }}
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5C74A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+    </a>
+  </sc-for>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:28px">
+    <a href="tel:+919910229389" style="padding:14px 22px;background:#2F8F4E;color:#fff;font-size:14px;font-weight:600;border-radius:100px;text-decoration:none">Call 99102 29389</a>
+    <a href="https://wa.me/919910229389" style="padding:14px 22px;border:1px solid rgba(255,255,255,.45);color:#fff;font-size:14px;font-weight:600;border-radius:100px;text-decoration:none">WhatsApp</a>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const LINKS = [
+  ['OldAgeCare.dc.html', 'Old Age Care'],
+  ['ChildDevelopment.dc.html', 'Child Development'],
+  ['Shashiraj%20Foundation.dc.html#services', 'Therapy'],
+  ['Shashiraj%20Foundation.dc.html#gallery', 'Gallery'],
+  ['About.dc.html', 'About']
+];
+
+class Component extends DCLogic {
+  state = { mobile: false, menu: false, scrolled: false };
+  componentDidMount() {
+    this._onResize = () => {
+      const m = window.innerWidth < 1010;
+      if (m !== this.state.mobile) this.setState({ mobile: m, menu: false });
+    };
+    this._onScroll = () => {
+      const s = window.scrollY > 60;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    window.addEventListener('resize', this._onResize);
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._onResize();
+    this._onScroll();
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('scroll', this._onScroll);
+  }
+  renderVals() {
+    const { mobile, menu, scrolled } = this.state;
+    const active = this.props.active || '';
+    return {
+      navDisplay: mobile ? 'none' : 'flex',
+      burgerDisplay: mobile ? 'flex' : 'none',
+      menuDisplay: menu ? 'flex' : 'none',
+      menuOpen: menu,
+      shellMax: scrolled ? '1080px' : '1360px',
+      shellShadow: scrolled ? '0 12px 34px rgba(14,59,102,.13)' : '0 4px 18px rgba(14,59,102,.07)',
+      toggleMenu: () => this.setState(s => ({ menu: !s.menu })),
+      links: LINKS.map(([href, label]) => {
+        const on = active && href.indexOf(active) === 0;
+        return { href, label, bg: on ? '#FDF2D4' : 'transparent', color: on ? '#0E3B66' : '#41566B', weight: on ? 600 : 500 };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>
